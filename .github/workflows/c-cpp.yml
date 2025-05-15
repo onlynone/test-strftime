@@ -37,6 +37,7 @@ jobs:
     - uses: vmactions/freebsd-vm@v1
       name: start freebsd
     - name: debug
+      shell: freebsd {0}
       run: "uname -a"
     - name: make s
       shell: freebsd {0}
