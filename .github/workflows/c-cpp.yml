@@ -69,18 +69,8 @@ jobs:
       TZ: America/New_York
     steps:
     - uses: actions/checkout@v4
-    - name: debug
-      shell: bash
-      run: |
-        ls -la "C:\Program Files\Microsoft Visual Studio" || true
-        which gcc || true
-        which make || true
-        env
     - name: make s
       shell: cmd
-      run: 'gcc -o s s.c'
+      run: make s
     - name: make test
-      shell: bash
-      run: |
-        ./s > t/actual_output.txt
-        diff -u t/expected_output-Windows.txt t/actual_output.txt
+      run: make test
