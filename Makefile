@@ -1,9 +1,16 @@
 OS ?= $(shell uname)
 CC ?= cc
 
-s: s.c
-	$(CC) -o s s.c
+PROG=s$(EXT)
 
-test: s
-	./s > t/actual_output.txt
-	diff -u t/expected_output-$(OS).txt t/actual_output.txt
+$(PROG): s.c
+	$(CC) -o $@ $^
+
+t/actual_output-$(OS).txt: $(PROG)
+	./$< > $@
+
+test: t/actual_output-$(OS).txt
+	diff -u t/expected_output-$(OS).txt $<
+
+clean:
+	rm -f $(PROG) t/actual_output-$(OS).txt

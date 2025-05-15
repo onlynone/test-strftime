@@ -58,11 +58,13 @@ jobs:
           - tag: windows-11-arm
     env:
       TZ: America/New_York
+      EXT: .exe
+      CC: gcc
     steps:
     - uses: actions/checkout@v4
     - name: make s
       shell: bash
-      run: make s CC=gcc
+      run: make s.exe
     - name: make test
       shell: bash
       run: |
