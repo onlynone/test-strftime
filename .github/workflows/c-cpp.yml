@@ -64,11 +64,11 @@ jobs:
       shell: bash
       run: |
         ls -la "C:\Program Files\Microsoft Visual Studio"
-        ls -la /c/mingw64/bin
-        which cc
+        which gcc
+        which make
     - name: make s
       shell: cmd
-      run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && cc -o s s.c'
+      run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && gcc -o s s.c'
     - name: make test
       shell: bash
       run: |
