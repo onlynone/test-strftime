@@ -1,0 +1,5 @@
+%z: -0500
+%Z: UTC
+tm_isdst: 0
+tm_gmtoff: 0
+tm_zone: UTC
