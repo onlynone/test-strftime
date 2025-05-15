@@ -63,9 +63,9 @@ jobs:
     - name: debug
       shell: bash
       run: |
-        ls -la "C:\Program Files\Microsoft Visual Studio"
-        which gcc
-        which make
+        ls -la "C:\Program Files\Microsoft Visual Studio" || true
+        which gcc || true
+        which make || true
     - name: make s
       shell: cmd
       run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && gcc -o s s.c'
