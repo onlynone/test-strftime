@@ -37,8 +37,10 @@ jobs:
     - uses: vmactions/freebsd-vm@v1
       name: start freebsd
     - name: make s
+      shell: freebsd {0}
       run: make s
     - name: make test
+      shell: freebsd {0}
       run: make test
   build-windows:
     runs-on: ${{ matrix.platform }}
