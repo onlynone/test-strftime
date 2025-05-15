@@ -38,17 +38,23 @@ jobs:
       name: start freebsd
     - name: debug
       shell: freebsd {0}
-      run: "uname -a"
+      run: |
+        set -x
+        uname -a
+        uname
+        uname -s
+        env
+        set +x
     - name: make s
       shell: freebsd {0}
       run: |
         cd ${GITHUB_WORKSPACE}
-        make s
+        make -d s
     - name: make test
       shell: freebsd {0}
       run: |
         cd ${GITHUB_WORKSPACE}
-        make test
+        make -d test
   build-windows:
     runs-on: ${{ matrix.platform }}
     strategy:
@@ -69,6 +75,7 @@ jobs:
         ls -la "C:\Program Files\Microsoft Visual Studio" || true
         which gcc || true
         which make || true
+        env
     - name: make s
       shell: cmd
       run: 'gcc -o s s.c'
