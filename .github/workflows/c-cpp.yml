@@ -7,19 +7,22 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-linux:
-    runs-on:
-      - ubuntu-24.04
-      - ubuntu-22.04
-      - ubuntu-24.04-arm
-      - ubuntu-22.04-arm
-      - windows-2025
-      - windows-2022
-      - windows-2019
-      - windows-11-arm
-      - macos-15
-      - macos-14
-      - macos-13
+  build:
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      matrix:
+        platform:
+          - ubuntu-24.04
+          - ubuntu-22.04
+          - ubuntu-24.04-arm
+          - ubuntu-22.04-arm
+          - windows-2025
+          - windows-2022
+          - windows-2019
+          - windows-11-arm
+          - macos-15
+          - macos-14
+          - macos-13
     env:
       TZ: America/New_York
     steps:
