@@ -60,9 +60,9 @@ jobs:
       TZ: America/New_York
     steps:
     - uses: actions/checkout@v4
-    - name: make s CC=gcc
+    - name: make s
       shell: bash
-      run: make s
+      run: make s CC=gcc
     - name: make test
       shell: bash
       run: make test
