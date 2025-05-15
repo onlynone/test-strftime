@@ -36,15 +36,6 @@ jobs:
     - uses: actions/checkout@v4
     - uses: vmactions/freebsd-vm@v1
       name: start freebsd
-    - name: debug
-      shell: freebsd {0}
-      run: |
-        set -x
-        uname -a
-        uname
-        uname -s
-        env
-        set +x
     - name: make s
       shell: freebsd {0}
       run: |
@@ -56,21 +47,22 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         make -d test
   build-windows:
-    runs-on: ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform.tag }}
     strategy:
       fail-fast: false
       matrix:
         platform:
-          - windows-2025
-          - windows-2022
-          - windows-2019
-          - windows-11-arm
+          - tag: windows-2025
+          - tag: windows-2022
+          - tag: windows-2019
+          - tag: windows-11-arm
     env:
       TZ: America/New_York
     steps:
     - uses: actions/checkout@v4
-    - name: make s
-      shell: cmd
+    - name: make s CC=gcc
+      shell: bash
       run: make s
     - name: make test
+      shell: bash
       run: make test
