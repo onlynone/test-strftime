@@ -66,4 +66,4 @@ jobs:
       shell: bash
       run: |
         ./s > t/actual_output.txt
-        diff -u t/expected_output.txt t/actual_output.txt
+        diff -u t/expected_output-Windows.txt t/actual_output.txt
