@@ -1,5 +1,4 @@
 %z: +0000
 %Z: GMT
 tm_isdst: 0
-tm_gmtoff: 0
 tm_zone: GMT
