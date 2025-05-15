@@ -64,8 +64,8 @@ jobs:
       shell: bash
       run: |
         ls -la "C:\Program Files\Microsoft Visual Studio"
-        which cc
         ls -la /c/mingw64/bin
+        which cc
     - name: make s
       shell: cmd
       run: '"C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" && cc -o s s.c'
