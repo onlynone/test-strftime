@@ -39,18 +39,12 @@ jobs:
     - name: make s
       shell: freebsd {0}
       run: |
-        pwd
-        ls -la
         cd ${GITHUB_WORKSPACE}
-        pwd
-        ls -la
-        cat Makefile
         make s
     - name: make test
       shell: freebsd {0}
       run: |
-        pwd
-        ls -la
+        cd ${GITHUB_WORKSPACE}
         make test
   build-windows:
     runs-on: ${{ matrix.platform }}
