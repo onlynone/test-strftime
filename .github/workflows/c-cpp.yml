@@ -8,7 +8,18 @@ on:
 
 jobs:
   build-linux:
-    runs-on: ubuntu-latest
+    runs-on:
+      - ubuntu-24.04
+      - ubuntu-22.04
+      - ubuntu-24.04-arm
+      - ubuntu-22.04-arm
+      - windows-2025
+      - windows-2022
+      - windows-2019
+      - windows-11-arm
+      - macos-15
+      - macos-14
+      - macos-13
     env:
       TZ: America/New_York
     steps:
