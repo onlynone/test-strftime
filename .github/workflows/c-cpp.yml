@@ -14,8 +14,6 @@ jobs:
       TZ: America/New_York
     steps:
     - uses: actions/checkout@v4
-    - run: 'echo TZ: $TZ'
-    - run: 'date'
     - name: make s
       run: make s
     - name: make test
