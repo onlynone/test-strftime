@@ -36,6 +36,8 @@ jobs:
     - uses: actions/checkout@v4
     - uses: vmactions/freebsd-vm@v1
       name: start freebsd
+    - name: debug
+      run: "uname -a"
     - name: make s
       shell: freebsd {0}
       run: |
