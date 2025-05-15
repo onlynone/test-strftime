@@ -33,5 +33,5 @@ int main(int argc, char **argv) {
   printf("tm_isdst: %d\n", now_struct->tm_isdst);
   // Doesn't exist on windows
   // printf("tm_gmtoff: %ld\n", now_struct->tm_gmtoff);
-  printf("tm_zone: %s\n", now_struct->tm_zone);
+  // printf("tm_zone: %s\n", now_struct->tm_zone);
 }
