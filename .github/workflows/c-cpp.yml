@@ -24,10 +24,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: vmactions/freebsd-vm@v1
-      name: make s
-      with:
-        run: make s
-    - uses: vmactions/freebsd-vm@v1
-      name: make test
-      with:
-        run: make test
+      name: start freebsd
+    - name: make s
+      run: make s
+    - name: make test
+      run: make test
