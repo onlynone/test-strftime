@@ -76,9 +76,13 @@ jobs:
       run: |
         which -a cc
         which -a gcc
+        which -a cl
+        which -a cl.exe
         "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
         which -a cc
         which -a gcc
+        which -a cl
+        which -a cl.exe
     - name: make s.exe
       shell: bash
       run: make s.exe
