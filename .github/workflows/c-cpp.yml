@@ -73,6 +73,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: debug
+      shell: cmd
       run: |
         which -a cc
         which -a gcc
