@@ -66,14 +66,22 @@ jobs:
       matrix:
         platform:
           - tag: windows-2025
+            expected_output: Windows
+            cc: cc
           - tag: windows-2022
+            expected_output: Windows
+            cc: gcc
           - tag: windows-2019
-            os: Windows_NT-2019
+            expected_output: Windows-2019
+            cc: gcc
           - tag: windows-11-arm
+            expected_output: Windows
+            cc: gcc
     env:
       TZ: America/New_York
       EXT: .exe
-      CC: gcc
+      CC: ${{ matrix.platform.cc }}
+      EXPECTED_OUTPUT: t/expected_output-${{ matrix.platform.expected_output }}.txt
     steps:
     - uses: actions/checkout@v4
     - name: make s
@@ -81,16 +89,4 @@ jobs:
       run: make s.exe
     - name: make test
       shell: bash
-      run: |
-        set -x
-        echo ${OS}
-        uname -a
-        uname
-        uname -s
-        uname -o
-        test -z "${OS}" && unset OS
-        uname -a
-        uname
-        uname -s
-        uname -o
-        make test
+      run: make test
