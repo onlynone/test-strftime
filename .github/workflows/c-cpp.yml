@@ -70,5 +70,5 @@ jobs:
     - name: make test
       shell: bash
       run: |
-        ls -la .
-        make -d test
+        test -z "${OS}" && unset OS
+        make test
