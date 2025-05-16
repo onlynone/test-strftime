@@ -27,7 +27,14 @@ jobs:
     - name: make s
       run: make s
     - name: make test
-      run: make test
+      run: |
+        set -x
+        echo ${OS}
+        uname -a
+        uname
+        uname -s
+        uname -o
+        make test
   build-freebsd:
     runs-on: ubuntu-latest
     env:
@@ -44,6 +51,12 @@ jobs:
     - name: make test
       shell: freebsd {0}
       run: |
+        set -x
+        echo ${OS}
+        uname -a
+        uname
+        uname -s
+        uname -o
         cd ${GITHUB_WORKSPACE}
         make -d test
   build-windows:
