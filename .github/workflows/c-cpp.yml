@@ -72,6 +72,13 @@ jobs:
       EXPECTED_OUTPUT: t/expected_output-${{ matrix.platform.expected_output }}.txt
     steps:
     - uses: actions/checkout@v4
+    - name: debug
+      run: |
+        which -a cc
+        which -a gcc
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
+        which -a cc
+        which -a gcc
     - name: make s.exe
       shell: bash
       run: make s.exe
