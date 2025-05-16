@@ -70,5 +70,13 @@ jobs:
     - name: make test
       shell: bash
       run: |
+        uname -a
+        uname
+        uname -s
+        uname -o
         test -z "${OS}" && unset OS
+        uname -a
+        uname
+        uname -s
+        uname -o
         make test
