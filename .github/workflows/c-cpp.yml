@@ -55,11 +55,13 @@ jobs:
           - tag: windows-2025
           - tag: windows-2022
           - tag: windows-2019
+            os: Windows_NT-2019
           - tag: windows-11-arm
     env:
       TZ: America/New_York
       EXT: .exe
       CC: gcc
+      OS: ${{ matrix.platform.os }}
     steps:
     - uses: actions/checkout@v4
     - name: make s
