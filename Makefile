@@ -9,10 +9,10 @@ $(PROG): s.c
 	$(CC) -o $@ $<
 
 t/actual_output.txt: $(PROG)
-	./$< > $@
+	./$(PROG) > $@
 
 test: t/actual_output.txt
-	diff -u $(EXPECTED_OUTPUT) $<
+	diff -u $(EXPECTED_OUTPUT) t/actual_output.txt
 
 clean:
 	rm -f $(PROG) t/actual_output.txt
