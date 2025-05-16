@@ -27,14 +27,7 @@ jobs:
     - name: make s
       run: make s
     - name: make test
-      run: |
-        set -x
-        echo ${OS}
-        uname -a
-        uname
-        uname -s
-        uname -o
-        make test
+      run: make test
   build-freebsd:
     runs-on: ubuntu-latest
     env:
@@ -51,12 +44,6 @@ jobs:
     - name: make test
       shell: freebsd {0}
       run: |
-        set -x
-        echo ${OS}
-        uname -a
-        uname
-        uname -s
-        uname -o
         cd ${GITHUB_WORKSPACE}
         make -d test
   build-windows:
@@ -84,7 +71,7 @@ jobs:
       EXPECTED_OUTPUT: t/expected_output-${{ matrix.platform.expected_output }}.txt
     steps:
     - uses: actions/checkout@v4
-    - name: make s
+    - name: make s.exe
       shell: bash
       run: make s.exe
     - name: make test
