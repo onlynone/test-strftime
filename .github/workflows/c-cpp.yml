@@ -61,7 +61,6 @@ jobs:
       TZ: America/New_York
       EXT: .exe
       CC: gcc
-      OS: ${{ matrix.platform.os }}
     steps:
     - uses: actions/checkout@v4
     - name: make s
