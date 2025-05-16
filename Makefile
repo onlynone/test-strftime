@@ -4,7 +4,7 @@ CC ?= cc
 PROG=s$(EXT)
 
 $(PROG): s.c
-	$(CC) -o $@ $^
+	$(CC) -o $@ $<
 
 t/actual_output-$(OS).txt: $(PROG)
 	./$< > $@
