@@ -69,6 +69,8 @@ jobs:
     - name: make test
       shell: bash
       run: |
+        set -x
+        echo ${OS}
         uname -a
         uname
         uname -s
