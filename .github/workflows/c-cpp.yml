@@ -44,8 +44,11 @@ jobs:
     - name: make test
       shell: freebsd {0}
       run: |
+        set -x
         cd ${GITHUB_WORKSPACE}
-        make test
+        echo $OS
+        uname -s
+        make -d -x test
   build-windows:
     runs-on: ${{ matrix.platform.tag }}
     strategy:

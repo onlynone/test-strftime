@@ -12,6 +12,8 @@ t/actual_output.txt: $(PROG)
 	./$(PROG) > $@
 
 test: t/actual_output.txt
+	@echo $(OS)
+	uname -s
 	diff -u $(EXPECTED_OUTPUT) t/actual_output.txt
 
 clean:
